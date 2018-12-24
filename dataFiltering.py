@@ -3,14 +3,11 @@ files_list = ["data_2018.csv","data_2017.csv","data_2016.csv","data_2015.csv","d
 
 all_seasons = []
 for file_name in files_list:
-    print(file_name)
     mylist = []
     for chunk in pd.read_csv(file_name, sep=',', chunksize=40000):
         mylist.append(chunk)
     data = pd.concat(mylist, axis=0)
     del mylist
-    print(data.shape)
-    print("filtering")
     #    data = data[['GAME_ID','HOMEDESCRIPTION','PCTIMESTRING','PERIOD','PLAYER1_ID','PLAYER1_NAME','PLAYER1_TEAM_ABBREVIATION','PLAYER1_TEAM_ID','PLAYER2_ID','PLAYER2_NAME','PLAYER2_TEAM_ABBREVIATION','PLAYER2_TEAM_ID','PLAYER3_ID','PLAYER3_NAME','PLAYER3_TEAM_ABBREVIATION','PLAYER3_TEAM_ID','HOME_TEAM','AWAY_TEAM','JUMP_BALL_HOME_PLAYER_ID','JUMP_BALL_AWAY_PLAYER_ID','JUMP_BALL_RETRIEVED_PLAYER_ID']]
 
     data = data[['GAME_ID','HOMEDESCRIPTION','PCTIMESTRING','PERIOD','PLAYER3_TEAM_ABBREVIATION','HOME_TEAM','AWAY_TEAM','JUMP_BALL_HOME_PLAYER_ID','JUMP_BALL_AWAY_PLAYER_ID','JUMP_BALL_RETRIEVED_PLAYER_ID']]
