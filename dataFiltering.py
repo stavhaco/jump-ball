@@ -56,4 +56,4 @@ for file_name in files_list:
 
 all_filtered_data = pd.concat(all_seasons, axis=0)
 
-all_filtered_data.to_csv('filtered_data_2010_2018.csv')
+all_filtered_data.to_csv('filtered_data_2010_2018.csv')##
